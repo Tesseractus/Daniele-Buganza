@@ -1,0 +1,67 @@
+.Art{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	cursor: pointer;
+	transition: 0.3s;
+	box-shadow: 10px 15px 17px rgb(0 0 0 / 40%);
+}
+
+.Art:hover {opacity: 0.7; transform: scale(0.97);}
+/*Div which we show the art in full screen*/
+.modal {
+  z-index: 11;
+  position:fixed;
+  top:0;
+  left:0;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  flex-direction:column;
+}
+/* Modal Content (image) */
+.modal-content {
+  width: auto;
+	max-height: 93%;
+	max-width:100%;
+	object-fit: contain;
+}
+#caption {
+  color: #ccc;
+  padding: 5px 0;
+}
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+	max-height:90%;
+    max-width:99%;
+  }
+  .Art{
+  	height:auto;
+  }
+}
+@media(max-width:1000px){
+  .Art{
+    box-shadow: 10px 15px 17px rgb(0 0 0 / 40%);
+  }
+}

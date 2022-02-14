@@ -1,0 +1,69 @@
+@import url(https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&display=swap);
+#backface{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+    font-family: 'Shippori Mincho';
+    font-size:13vh;
+    color: rgba(141, 68, 0, 0.05);
+    z-index: -100;
+    padding-left: 5vh;
+    overflow:hidden;
+}
+#frontface{
+    color: black;
+    font-family: 'Shippori Mincho';
+    flex-wrap:nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 98%;
+}
+#textBiography{
+    padding-left:3vh;
+    padding-right: 2vh;
+    font-size: 1.6vh;
+}
+#containerImage{
+    /* -webkit-transform:rotate(-9deg); */
+    -moz-transform: rotate(-9deg);
+    -ms-transform: rotate(-9deg);
+    -o-transform: rotate(-9deg);
+    /* transform: rotate(-9deg); */
+}
+#image{
+    width: 25%;
+    -webkit-transform:rotate(-9deg);
+        -moz-transform: rotate(-9deg);
+        -ms-transform: rotate(-9deg);
+        -o-transform: rotate(-9deg);
+        transform: rotate(-9deg);
+}
+
+@media(max-width:1000px){
+    #frontface{
+        z-index: 1;
+        color: black;
+        font-family: 'Shippori Mincho';
+        flex-wrap: wrap;
+    }
+    #textBiography{
+        padding-left: 5vh;
+        z-index: 1;
+        padding-right: 5vh;
+    }
+    #image{
+        padding-top: 5vh;
+        width: 50%;
+        -webkit-transform:rotate(-9deg);
+        -moz-transform: rotate(-9deg);
+        -ms-transform: rotate(-9deg);
+        -o-transform: rotate(-9deg);
+        transform: rotate(-9deg);
+    }
+}

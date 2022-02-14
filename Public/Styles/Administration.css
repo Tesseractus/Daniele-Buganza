@@ -1,0 +1,142 @@
+
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+#presenter {
+    background-color: #212529;
+    color: aliceblue;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 10px 15px 17px rgba(0, 0, 0, 0.4);
+    min-height: max-content;
+    max-width: 95%;
+    align-items: center;
+    justify-content: center;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 20vh;
+}
+.card-deck{
+    display: flex;
+    flex-direction: row;
+}
+.card{
+    margin: 2px;
+}
+.card-body{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+.btn-danger{
+    border-radius: 5px;
+}
+
+.form-control{
+    margin-bottom: 2vh;
+}
+.container{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+select{
+    margin-bottom: 2vh;
+    cursor: pointer;
+}
+@media screen and (min-width:240px){ /* smartphone */
+    .container{
+        height: 100vh;
+    }
+    .form-group{
+        width: 35vh;
+    }
+    .card-deck{
+        display: flex;
+        flex-direction: column;
+    }
+    .card{
+        min-width: 100% !;
+    }
+    #presenterPhotos{
+        margin-top: 20%;
+    }
+}
+@media screen and (min-width:440px){ /* intermediary low resolution */
+    .container{
+        height: 100vh;
+    }
+
+}
+
+
+@media screen and (min-width:990px){ /* Tablet/hd */
+    .container{
+        height: 100vh;
+        width: 69%;
+        margin: 0px 0 0 31%;
+    }
+    .card-deck{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    .card{
+        max-width: 20%;
+        min-width: 121px;
+    }
+    #presenterPhotos{
+        margin-top: 0;
+        top: 0;
+        position: absolute;
+    }
+
+
+}
+@media screen and (min-width:1998px){ /* Full hd / 2k */
+    .container{
+        height: 100vh;
+        width: 69%;
+        margin: 0 0 0 37%;
+    }
+    .card-deck{
+        display: flex;
+        flex-direction: row;
+    }
+
+
+}
+@media screen and (min-width:2560px){ /* 2k wide */
+    .container{
+        height: 100vh;
+        width: 60%;
+        margin: 0 0 0 38%;
+    }
+    .card-deck{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+
+}
+@media screen and (min-width:3480px){ /* 4k */
+    .container{
+        height: 100vh;
+        width: 55%;
+        margin: 0 0 0 45%;
+    }
+    .card-deck{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+}

@@ -1,0 +1,20 @@
+<%- include('_header.ejs') %>
+    <!-- Css navbar-->
+    <link rel="stylesheet" href="Styles/NavBar.css">
+    <!-- Css Presenter -->
+    <link rel="stylesheet" href="Styles/Presenter.css">
+    <link rel="stylesheet" href="Styles/MosaicHomePage.css">
+    <link rel="stylesheet" href="Styles/ArtPreview.css">
+<%- include('_headerFooter.ejs') %>
+<%- include('_menu.ejs' ) %>
+    <%- include('__generalLinks.ejs') %>
+<%- include('_menuFooter.ejs') %>
+    <div id="Mosaic" class="Mosaic">
+        <script>loadHomeGallery();</script>
+    </div>
+    <!-- The Modal for the preview -->
+    <div id="myModal" class="modal" style="display:none;" onclick="CloseModal();">
+        <img class="modal-content" id="modalImg">
+        <div id="caption"></div>
+    </div>
+<%- include('_footer.ejs') %>

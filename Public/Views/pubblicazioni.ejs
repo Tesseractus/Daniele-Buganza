@@ -1,0 +1,16 @@
+<%- include('_header.ejs') %>
+    <!-- Css navbar-->
+    <link rel="stylesheet" href="Styles/NavBar.css">
+    <!-- Css Presenter -->
+    <link rel="stylesheet" href="Styles/Presenter.css">
+    <!-- pubblicazioni stylesheet-->
+    <link rel="stylesheet" href="Styles/Pubblications.css">
+<%- include('_headerFooter.ejs') %>
+<%- include('_menu.ejs' ) %>
+    <%- include('__generalLinks.ejs') %>
+    <script>let menuTitle=document.getElementById("menuTitle"); menuTitle.innerText="Pubblicazioni"; menuTitle.setAttribute("class", "display-6 text-white");</script>
+    <script>loadSelectedPubblication(getUrlVariable("name"));</script>
+    
+<%- include('_menuFooter.ejs') %>
+<div id="backface" class="row h-100 w-100 justify-content-center align-items-center" ></div>
+<%- include('_footer.ejs') %>

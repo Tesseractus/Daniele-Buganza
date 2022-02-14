@@ -1,0 +1,30 @@
+
+<%- include('_header.ejs') %>
+    <!-- Css navbar-->
+    <link rel="stylesheet" href="Styles/NavBar.css">
+    <!-- Css Presenter -->
+    <link rel="stylesheet" href="Styles/Presenter.css">
+    <link rel="stylesheet" href="Styles/Biography.css">
+<%- include('_menu.ejs') %>
+    <script>$("#menuTitle").text("Biografia");</script>
+    <a class="nav-link" href="/">Home</a>
+    <%- include('__generalLinks.ejs') %>
+<%- include('_menuFooter.ejs') %>
+
+<div id="frontface" class="position-absolute">
+    <div id="textBiography">
+    <h1 class="display-1">Daniele<br>Buganza</h1>
+    <p >Nasce a Modena nel 1983.  <br> <br>
+        La sensibilità artistica compare già dalla prima infanzia sotto forma di disegno e lo accompagna durante la crescita come bisogno di esternazione di sé al mondo.
+        Nel corso degli anni liceali, subendo il fascino dell'indagine filosofica,  la ricerca di una forma artistica espressiva viene progressivamente superata dalla necessità di definizione del Bello e del Vero e dal desiderio di conoscenza degli stessi. <br> <br>
+        Dopo la maturità classica si iscrive pertanto al corso di laurea in Filosofia presso l'università di Bologna, ottenendo la laurea triennale con una tesi sul discorso indiretto nel pensiero di Kierkegaard (2006), e la laurea magistrale, presso lo stesso ateneo, con una più complessa e articolata dissertazione sul pluriprospettivismo nietzscheano (2009).
+         <br> <br>
+        Gli anni successivi sono i più complessi e i più cruciali; il desiderio di indipendenza e autonomia da una parte e l'esigenza di calarsi nel mondo reale dall'altra, uniti al disincanto dell'età adulta, sfociano in una poliedricità di esperienze lavorative: dal correttore di bozze per una piccola realtà editoriale bolognese al notturno fornaio di paese. Sono questi gli anni della maturazione dell'Io e della rinascita artistica.
+         <br> <br>L'assenza di una formazione accademica, inizialmente vissuta come ostacolo creativo, viene successivamente accolta come mancanza determinante e assunta come sigillo di autenticità espressiva. 
+        L'originaria necessità di sapere diviene desiderio di saper fare, il bisogno di definizione si evolve in volontà di autodeterminazione:  disegno, pittura e scrittura diventano a tutti gli effetti mezzi di comunicazione tra il Sé e l'Io e tra l'Io e gli Altri.</p>
+    </div>
+    <script>loadRandomPic();</script>
+</div>
+
+<div id="backface" class="row h-100 w-90 justify-content-center align-items-center" >La felicità accade agli individui, non alle masse.</div>
+<%- include('_footer.ejs') %>

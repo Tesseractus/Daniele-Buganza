@@ -1,0 +1,141 @@
+/*-----------------------SMARTPHONE--------------------------------------------*/
+@media screen and (min-width:280px){ /* smartphone */
+    .Mosaic{
+      display: -ms-flexbox; /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap; /* IE10 */
+      flex-wrap: wrap;
+      padding: 3vh;
+      flex-basis:100%;
+    }
+    .ph1, .ph2, .ph3, .ph4, .ph5, .ph6, .ph7, .ph8, .ph9, .ph10{
+          -ms-flex: 100%;
+          flex: 100%;
+          max-width: 100%;
+          margin-bottom: 20px;
+
+    }
+}
+
+    /*-----------------------HD--------------------------------------------*/
+@media screen and (min-width:768px){ /* Tablet/hd */
+    #presenter{
+        display: flex;
+        height: 100%;
+        align-items: stretch;
+    }
+    .Mosaic {
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(8, 12.1%);
+        grid-template-rows: repeat(8, 11.9%);
+        grid-gap: 5px;
+        padding:5px;
+        align-content: space-between;
+        justify-content: center;
+    }
+    
+    .ph1{ 
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+    .ph2{ 
+        grid-column-start: 3;
+        grid-column-end: 5;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+    .ph4{ 
+        grid-column-start: 5;
+        grid-column-end: 9;
+        grid-row-start: 1;
+        grid-row-end: 6;
+    }
+    .ph3{ 
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 3;
+        grid-row-end: 6;
+    }
+    .ph6{ 
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 6;
+        grid-row-end: 9;
+    }
+    .ph7{ 
+        grid-column-start: 5;
+        grid-column-end: 9;
+        grid-row-start: 6;
+        grid-row-end: 9;
+    }
+    .ph5{ 
+        display:none;
+    }
+    .ph10{ 
+        display:none;
+    }
+    .ph9{ 
+        display:none;
+    }
+    .ph8{ 
+        display:none;
+    }
+}
+
+/*-----------------------2K--------------------------------------------*/
+@media screen and (min-width:1440px){ /* 2k */
+    #presenter{
+        display: flex;
+        height: 100%;
+        align-items: stretch;
+        overflow: hidden;
+    }
+    .Mosaic {
+    display: grid;
+    grid-template-columns: repeat(10, 9.2%);
+    grid-template-rows: repeat(10, 8.85%);
+    grid-gap: 15px;
+    padding:15px;
+    align-content: space-between;
+    justify-content: center;
+    }
+    
+    .ph6{ 
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 6;
+        grid-row-end: 11;
+    }
+    
+    .ph5{
+        display:block;
+        grid-column-start: 9;
+        grid-column-end: 11;
+        grid-row-start: 1;
+        grid-row-end: 6;
+    }
+    .ph10{ 
+        display:block;
+        grid-column-start: 9;
+        grid-column-end: 11;
+        grid-row-start: 6;
+        grid-row-end: 11;
+    }
+    .ph9{
+        display:block;
+        grid-column-start: 7;
+        grid-column-end: 9;
+        grid-row-start:9;
+        grid-row-end: 11;
+    }
+    .ph8{
+        display:block;
+        grid-column-start: 5;
+        grid-column-end: 7;
+        grid-row-start:9;
+        grid-row-end: 11;
+    }
+}

@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+/*Setting the vertical menu in desktop view*/
+.container{
+    padding: 0;
+}
+.imageLink:active{
+    transform: translateY(4px);
+}
+.dropdown-menu{
+    position: inherit !important;
+}
+.navbar-nav > li > .dropdown-menu{
+    background-color: rgb(73, 73, 73);
+    padding-left: 10px;
+    position: inherit !important;
+}
+ul#indexcolumn {
+    width: 100%;
+}
+
+#indexcolumn{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+#menuTitle{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+@media screen and (min-width:10px){ /* smartphone */
+    #MENU{
+        height: auto;
+        font-family: 'Rubik';
+        width: 100%;
+        box-shadow: 3px 15px 10px rgb(0 0 0 / 40%);
+        top: 0;
+        left: 0;
+        position: fixed;
+        z-index: 10;
+    }
+    #menuContainer{
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width:990px){ /* Tablet/hd */
+    
+    #MENU{
+        min-width: 22%;
+        width: 22%;
+        height: 100vh;        
+        box-shadow: 15px 3px 10px rgba(0, 0, 0, 0.5 );
+        transition: all 0.4s;
+        align-items: start;
+        
+      }
+    #menuContainer{
+        flex-direction: column;
+        align-items: stretch;
+        display: flex;
+        font-size: medium;
+    }
+    #pubblicationsLinks{
+        font-size: medium;
+    }
+    .imageLink{
+        width: 15%;
+    }
+    h1{
+        font-size: 2rem;
+    }
+
+}
+
+@media screen and (min-width:1919px){ /* Tablet/hd */
+    #menuContainer{
+        flex-direction: column;
+        align-items: stretch;
+        display: flex;
+        font-size: x-large;
+    }
+    #pubblicationsLinks{
+        font-size: x-large;
+    }
+    .imageLink{
+        width: 15%;
+    }
+    h1{
+        font-size: 4rem;
+    }
+}
+
+@media screen and (min-width:2560px){ /* 2k wide */
+    #menuContainer{
+        font-size: xx-large;
+    }
+    h1{
+        font-size: 5rem;
+    }
+    #pubblicationsLinks{
+        font-size: xx-large;
+    }
+    .imageLink{
+        width: 15%;
+    }
+
+}
+@media screen and (min-width:3480px){ /* 4k */
+    #menuContainer{
+        font-size: xxx-large;
+    }
+    h1{
+        font-size: 7rem;
+    }
+    #pubblicationsLinks{
+        font-size: xxx-large;
+    }
+    .imageLink{
+        width: 15%;
+    }
+}
+
+

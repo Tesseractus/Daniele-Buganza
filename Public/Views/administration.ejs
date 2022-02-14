@@ -1,0 +1,17 @@
+<%- include('_header.ejs') %>
+    <!-- Css navbar-->
+    <link rel="stylesheet" href="Styles/NavBar.css">
+    <!--Administration Script-->
+    <script src="Scripts/administration.js"></script>
+     <!-- Css administration-->
+     <link rel="stylesheet" href="Styles/Administration.css">
+<%- include('_headerFooter.ejs') %>
+<%- include('_menu.ejs' ) %>
+    <%- include('__administrationLinks.ejs') %>
+    <script>
+        document.getElementById("menuTitle").innerText="Admin"; 
+    </script>
+<%- include('_menuFooter.ejs') %>
+    <div id="response"><%= typeof response != 'undefined' ? response : "Seleziona un'azione dal menù" %></div>
+    <script>loadAmministrationStatus(getUrlVariable("status"));</script>
+<%- include('_footer.ejs') %>

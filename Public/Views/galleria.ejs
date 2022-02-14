@@ -1,0 +1,24 @@
+<%- include('_header.ejs') %>
+    <!-- Css navbar-->
+    <link rel="stylesheet" href="Styles/NavBar.css">
+    <!-- Css Presenter -->
+    <link rel="stylesheet" href="Styles/Presenter.css">
+    <script>
+        loadGallery(getUrlVariable("categories"),getUrlVariable("subcategories"));    
+    </script>
+    <!-- gallery stylesheet-->
+    <link rel="stylesheet" href="Styles/Gallery.css">
+    <!-- Art Stylesheet-->
+    <link rel="stylesheet" href="Styles/ArtPreview.css">
+<%- include('_headerFooter.ejs') %>
+<%- include('_menu.ejs' ) %>
+    <%- include('__galleryLinks.ejs') %>
+<%- include('_menuFooter.ejs') %>
+    <script>changeMenuName();</script>
+    <!-- The Modal for the preview -->
+    <div id="myModal" class="modal" style="display:none;" onclick="CloseModal();">
+        <img class="modal-content" id="modalImg">
+        <div id="caption"></div>
+    </div>
+    
+<%- include('_footer.ejs') %>

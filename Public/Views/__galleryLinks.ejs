@@ -1,0 +1,10 @@
+<!--Generic part of page which is used to populate menu links for the gallery page -->
+
+<script>loadSubCategories(getUrlVariable('categories'))</script>
+<!--Returning to home link-->
+<a class="nav-link" href="/">Home</a>
+<!--place where will go subcategory links-->
+<div id="subcategoriesLinks"></div>
+<%- include("__pubblicationsLinks.ejs") %>
+<a class="nav-link" href="biografia">Biografia</a>
+<%- include("__contactLinks.ejs") %>

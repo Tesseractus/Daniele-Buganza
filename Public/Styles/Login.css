@@ -1,0 +1,52 @@
+.loginForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+    
+    
+}
+.loginContainer{
+    background-color:#212529;
+    padding:15px;
+    border-radius: 10px;
+    box-shadow: 10px 15px 17px rgb(0 0 0 / 40%);
+}
+.form-group{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+.errorMessage{
+    color: red;
+    text-align: center;
+    margin-bottom: 2vh;
+}
+
+
+@media screen and (min-width:280px){ /* smartphone */
+    .loginContainer{
+        width: 70%;
+    }
+    .loginForm{
+        height: 80vh;
+    }
+}
+
+@media screen and (min-width:768px){ /* Tablet/hd */
+    .loginContainer{
+        width: 30%;
+    }
+    .loginForm{
+        height: 100vh;
+    }
+
+}
+@media screen and (min-width:1440px){ /* 2k */
+    .loginContainer{
+    }
+    .loginForm{
+        height: 100vh;
+    }
+}

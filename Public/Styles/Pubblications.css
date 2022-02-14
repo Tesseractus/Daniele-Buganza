@@ -1,0 +1,74 @@
+@import url(https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&display=swap);
+#backface{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+    font-family: 'Shippori Mincho';
+    font-size:11vh;
+    color: rgba(141, 68, 0, 0.05);
+    z-index: -100;
+    width: 50%;
+    position:absolute;
+    overflow:hidden;
+}
+
+#coverPubblication{
+    width: 35%;
+    border-top: 50px;
+    box-shadow: 5px 0px 10px 5px rgb(0 0 0 / 90%);
+    margin-top: 25px;
+}
+#pubblicationDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+#containerDescription{
+    width: 35%;
+    margin-top: 50px;
+    font-family: 'Shippori Mincho';
+}
+
+#linkShop{
+    margin-bottom: 2vh;
+    box-shadow:inset 0px 1px 0px 0px #a6827e;
+    background:linear-gradient(to bottom, #7d5d3b 5%, #634b30 100%);
+    background-color:#7d5d3b;
+    border-radius:3px;
+    border:1px solid #54381e;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-size:13px;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #4d3534;
+    margin-bottom: 5vh;
+}
+#linkShop:hover{
+    background:linear-gradient(to bottom, #634b30 5%, #7d5d3b 100%);
+	background-color:#634b30;
+}
+#linkShop:active{
+    position:relative;
+	top:1px;
+}
+
+@media(max-width:1000px){
+    #coverPubblication{
+        width: 90%;
+    }
+    #containerDescription{
+        width: 90%;
+        font-family: 'Shippori Mincho';
+
+    }
+    #backface{
+       font-size: 8vh;
+    }
+}
