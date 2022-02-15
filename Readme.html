@@ -1,0 +1,662 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Documentazione</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ba073a62-908d-47a3-b908-754203cec6aa" class="page mono"><header><div class="page-header-icon undefined"><span class="icon">📜</span></div><h1 class="page-title">Documentazione</h1></header><div class="page-body"><p id="35c6f7da-c481-4745-b9d6-c3ff0040458e" class="">Autore: Mihu Turcanu</p><p id="8443d70b-ef6d-48f8-8024-862d99798ccf" class="">Start: <code>node app</code></p><p id="fa1a5d60-37e6-4206-a7d9-92083945d643" class="">Dev start: <code>nodemon app</code></p><p id="7e1066f0-67ab-4693-8819-d927b50a627f" class="">Main: <code>app.js</code></p><p id="984b6a8f-15e5-4db8-8d83-9e3d5894f6dc" class="">Porta: <code>3000</code></p><p id="25d192d1-eb9e-4bcf-b981-2919f02ffd78" class="">Vecchia versione del sito: <a href="http://www.danielebuganza.it">www.danielebuganza.it</a></p><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="413ccd62-6f4b-447e-8c03-8b4a1eea00bc"><div style="font-size:1.5em"><span class="icon">🔒</span></div><div style="width:100%">Pannello di controllo raggiungibile cliccando più volte sul titolo del menu [ex. “daniele buganza” nella homepage]
+
+user: daniele
+password: danibuga2020</div></figure><h1 id="26413a61-f595-4d40-9288-ed1ca2a4357e" class="block-color-blue_background">Directory</h1><h2 id="38516f4a-3cf6-42be-9e1e-0d97ebdd215d" class="block-color-red">node-modules</h2><p id="d5707e6e-2f69-4fa8-9f93-e736a37dab48" class="">Contiene tutte le librerie neccessarie al funzionamento del server</p><h2 id="02150f36-5972-4c6c-988e-fc98c9fed73f" class="block-color-red">Public</h2><p id="b20fa85d-59b4-4122-9bc2-c14a32403087" class="">Cartella accessibile tramite <code>http get method</code></p><div id="cb37b603-7e3f-475a-83a4-e61f4f1491c2" class="column-list"><div id="ad26cb6f-e5d2-415e-960a-546a59c3beeb" style="width:25%" class="column"><p id="c0e555e5-bc2e-4446-a6a5-dc3bdc12bc1d" class="">data</p></div><div id="77bb7651-fc77-44cc-b8f3-5fbd4afd4bcc" style="width:75%" class="column"><p id="e0cf609e-6d99-4011-9ba3-29e9952ae71d" class="">Contiene i file <code>json</code> neccessari per il funzionamento del sito</p></div></div><div id="5790b194-fc97-4f5e-9044-6ab834fca8a6" class="column-list"><div id="670abcff-ea53-458a-80f1-be11942d98fe" style="width:25%" class="column"><p id="777951be-a199-46e9-a6cb-227ac2d16521" class="">Gallery</p></div><div id="05e63cab-79fc-4afe-a603-92deec18b19c" style="width:75%" class="column"><p id="9c7520fd-941d-4b6c-89a0-bde305fc98c9" class="">Tutte le opere dell’artista</p></div></div><div id="5256595c-5d64-4e4a-bb72-634f6410633b" class="column-list"><div id="830de4a7-c155-4356-adb2-cd376cd09be2" style="width:25%" class="column"><p id="7b3e69af-1d7c-42d0-8b88-fd1c2e0d7459" class="">pics</p></div><div id="c4418945-888b-4a99-8626-134bcacb80c4" style="width:75%" class="column"><p id="cf0d8777-7cc8-460c-b541-d6bdf6596f5c" class="">Tutte le foto visibili nella pagina <code>biografia</code></p></div></div><div id="c35c3ad5-81ea-481d-8fd2-45463b408bba" class="column-list"><div id="a0ffbeb3-307e-42c1-85b4-5d6af9f20f41" style="width:25%" class="column"><p id="59fa9a2e-8498-4568-9fab-f0d25b9b5d2f" class="">pubblications</p></div><div id="a139d2b4-fce6-47b8-894c-6ed438780fda" style="width:75%" class="column"><p id="f661a112-5490-4cb6-ac9b-146a290601a2" class="">Tutte le copertine delle pubblicazione dell’artista</p></div></div><div id="8867e3ef-8629-45de-899e-4427907d4e8f" class="column-list"><div id="023bd2a1-09fe-4cf8-a06a-851f25bdc55a" style="width:25%" class="column"><p id="4d7b880c-234a-4aeb-b73a-c478a11468e2" class="">Scripts</p></div><div id="99c292df-a71a-4234-99d4-6adf05d00575" style="width:75%" class="column"><p id="102b6466-911e-442a-a02d-4a62bb88b28e" class="">Contiene gli script neccessari per popolare di contenuti il client</p></div></div><div id="b9a35b64-a29f-4b87-ab90-885ebcc28df9" class="column-list"><div id="746f93a4-7016-4e97-8d03-f1bbe44ae71f" style="width:25%" class="column"><p id="60a36b6a-abae-4def-b96e-0269f24011df" class="">Styles</p></div><div id="ac1493ec-080f-48d4-a425-e0513740a5e6" style="width:75%" class="column"><p id="64fe8964-da52-4355-a343-e62c0d58631d" class="">Contiene tutti i file css neccessari</p></div></div><div id="534c7906-af86-48cb-9679-1990b1caa44e" class="column-list"><div id="b368372a-374f-4a13-a59e-e7ddde71ae8a" style="width:25%" class="column"><p id="b95fa943-29b4-449e-97d1-5ec257acf092" class="">Views</p></div><div id="36ac53d4-832e-4b62-9191-ea9b2a1a6167" style="width:75%" class="column"><p id="419f3bfc-4b49-42d1-b377-138b89be7868" class="">Contiene tutte le viste parziali del sito</p></div></div><h2 id="f07ec84a-5926-4839-a48e-d42660b9209e" class="block-color-red">Utility</h2><p id="8a48cba9-d26b-46e7-a8da-33ba5618e21c" class="">Cartella contenente gli script neccessari lato server</p><h2 id="0fb34587-e57c-4175-8543-cc3eb4072baa" class="block-color-teal">app.js</h2><p id="325b8986-3d37-4c46-99b1-6ab0ed46c8de" class="">main di avvio del server</p><h2 id="c983cc77-bc83-4fb5-9f66-0ec6b33d8ceb" class="block-color-blue">package.json</h2><p id="d28485c3-2457-421f-a517-ed12d8981087" class="">archivio con le informazioni creato in automatico da nodejs</p><h2 id="d06f5b88-54db-4ac9-a40b-8ad709457cd2" class="block-color-blue">package-lock.json</h2><p id="00c30111-fa21-48ab-b5cc-608526a35dcc" class="">archivio generato automaticamente da node.js</p><h2 id="63bfccf0-bfa8-4918-b26b-f814bf89d315" class="block-color-red">routes.js</h2><p id="38e6d2bb-e9f5-4b81-b42e-a17cdc0e6126" class="">File principale usato per i metodi get e post di risposta al client da parte del server.</p><h1 id="cae13d93-0a69-48e2-8db5-8ecde5763605" class="block-color-yellow_background">Client</h1><p id="2f51463b-8f39-4dfc-9eff-1e680f6c960d" class="">Il sito è suddiviso in <strong>parte di anteprima</strong> e <strong>pannello admin.</strong></p><h3 id="be4606e5-b417-46a6-836d-00b5b4504aec" class="block-color-pink_background">Anteprima</h3><p id="ff92660b-23f7-456b-b5da-a746d1f210ad" class="">Ha la funzione di:<div class="indented"><ul id="4a1c5492-2adb-46f2-b127-4e28757a4939" class="bulleted-list"><li style="list-style-type:disc">presentazione delle opere d’arte dell’autore</li></ul><ul id="b01799fd-c0f7-4c96-8f92-8c3344c15e74" class="bulleted-list"><li style="list-style-type:disc">presentazione delle pubblicazioni (libri dell’autore)</li></ul><ul id="ee284f31-61d4-4715-bd2d-5f924e847abd" class="bulleted-list"><li style="list-style-type:disc">presentazione della biografia dell’autore</li></ul><ul id="6e8028b9-32f3-4be7-a462-611dc423871c" class="bulleted-list"><li style="list-style-type:disc">concedere reindirizzamenti al social dell’autore.</li></ul></div></p><h3 id="810247fb-6dd6-4e6c-b49e-845a93732660" class="block-color-pink_background">Pannello admin</h3><p id="f197bb96-303e-437f-b98e-6c1f30b8fa45" class="">Ha la funzione di:<div class="indented"><ul id="a56f2b0d-9318-44fa-81da-a9b34adad48f" class="bulleted-list"><li style="list-style-type:disc">gestione delle categorie e sottocategorie</li></ul><ul id="ee6ebab5-8406-48ba-a09d-8f49f2a0b6d1" class="bulleted-list"><li style="list-style-type:disc">aggiungere o rimuovere le opere artistiche</li></ul><ul id="a17bf022-3325-409b-9d53-fccf7b7ba43e" class="bulleted-list"><li style="list-style-type:disc">aggiungere o rimuovere le fotografie visibili nella biografia</li></ul></div></p><p id="8b2a879d-484b-4881-abcc-59ad26845bdd" class="">Le categorie e le sottocategorie sono gestite dal pannello di controllo.</p><h3 id="c2477e1f-341b-444d-956e-087a2ccc05c7" class="">Homepage</h3><p id="d8b414b4-f7f2-48fd-b719-3840c7b4f39f" class="">Come link dinamici abbiamo le categorie e le pubblicazioni.</p><p id="66f259be-1e5a-4d7e-8873-f63ecc53b507" class="">Come link statici abbiamo il rendirizzamento alla biografia e i reindirizzamenti ai social.</p><p id="84e76918-71c5-4979-994a-9e771e808082" class="">Come galleria abbiamo una galleria statica con le 10 opere scelte inizialmente dall’autore</p><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="e69098c3-5877-4adf-927c-3cdd4f34f296"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Le opere d’arte si possono vedere a tutto schermo cliccandoci sopra, ricliccando sparisce il tutto schermo.</div></figure><h3 id="47186a89-3767-439e-8fdd-3452798f5376" class="">Galleria</h3><p id="afaa5f14-306a-41d5-a49f-a8c47673bda0" class="">I link categorie nella homepage, rimandano alla galleria che a seconda della categoria mostra le sottocategorie disponibili e la galleria delle opere filtrate per categoria e sottocategoria</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="379bac3c-b8bb-4b98-8b66-0fed59bad421"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%">se non si specifica la sottocategoria, vengono visualizzate tutte le opere della stessa categoria</div></figure><h3 id="a59a89d5-1e09-45bc-a15a-5fdce15725b1" class="">Pubblicazioni</h3><p id="83be9362-57b2-483c-8645-a3075150de81" class="">I link pubblicazioni nella homepage, invece rimandano a pagine statiche delle pubblicazioni dell’utente. essendo che il cliente pubblica molto raramente questo tipo di contenuti, si è optato per non implementare la gestione nel menù. <em>In caso egli cambi idea, ho già predisposto i database json e la lettura di essi in modo da implementare facilmente la gestione delle pubblicazioni.</em></p><h3 id="4c153629-5056-4d00-b9a0-25234ff64bfd" class="">Biografia</h3><p id="357206c0-ea55-4fcd-8ca4-236c2498edeb" class="">E’ una pagina semistatica, che implementa uno script che prende una foto casuale inserita dall’utente e la mostra nella biografia.</p><p id="0e817354-39dd-4f11-a9c7-422d6ae048ce" class="">
+</p><h3 id="635e3c72-a61f-4214-b8fc-9ebfe59f762d" class="">Pannello Admin</h3><p id="7b3a32ad-042b-420b-acad-0834f56b309e" class="">E’ una pagina raggiungibile cliccando più volte sul titolo del menu. con esso possiamo gestire le categorie:<div class="indented"><ul id="a09c1fe5-9397-481d-b587-4930525f8578" class="bulleted-list"><li style="list-style-type:disc">aggiungere una nuova</li></ul><ul id="87b086dc-a645-46b7-99dc-5ad03707f90f" class="bulleted-list"><li style="list-style-type:disc">modificare il nome di una categoria</li></ul><ul id="505fe4d8-f8c6-464f-b711-f665cfdc98cf" class="bulleted-list"><li style="list-style-type:disc">eliminare una categoria</li></ul><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="0c5e5de0-b57a-43a5-8444-64176373558f"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%">La categoria non può essere eliminata se ci sono delle sottocategorie sotto di essa.</div></figure><figure class="block-color-brown_background callout" style="white-space:pre-wrap;display:flex" id="f9511a98-2034-4084-9d9c-4fae6526c2d3"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%">Non si possono inserire una categoria con nome uguale a una già esistente</div></figure></div></p><p id="c7b94386-bf1b-4473-8964-d170d09aaa0c" class="">gestire le sottocategorie<div class="indented"><ul id="f2a69bd5-e2c4-4d5e-a73f-9a585130e397" class="bulleted-list"><li style="list-style-type:disc">aggiungere una nuova sottocategoria</li></ul><ul id="3cad822a-fadd-44d4-af92-50af2c04d7a5" class="bulleted-list"><li style="list-style-type:disc">modificare il nome a una sottocategoria</li></ul><ul id="4a46a1bb-ae7d-43cc-a354-8fa7db583273" class="bulleted-list"><li style="list-style-type:disc">eliminare una categoria</li></ul><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="6a5dff4b-4846-44c8-b978-232ced9c1185"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%">La sottocategoria non può essere eliminata se ci sono delle opere sotto di essa</div></figure><figure class="block-color-brown_background callout" style="white-space:pre-wrap;display:flex" id="d23d4bba-102f-492f-8031-e9148d3add41"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%">Non possono esistere sottocategorie con lo stesso nome sotto la stessa categoria</div></figure></div></p><p id="37c15eee-890a-4c7b-b558-9f4cf0e74617" class="">gestire le Opere<div class="indented"><ul id="20e5a6a9-3e08-4577-8646-2914e33210e6" class="bulleted-list"><li style="list-style-type:disc">Aggiungere una nuova opera artistica</li></ul><ul id="fd2dc69e-8a64-4695-9eb5-b3023fac08c9" class="bulleted-list"><li style="list-style-type:disc">Rimuovere un’opera artistica già esistente</li></ul><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="7f801777-9277-4cc5-88f7-b394d523b3c9"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%">I file più grandi di 3mb vengono automaticamente compressi dal server</div></figure></div></p><p id="409715d0-4b45-47a8-960d-e00b8b0af2c1" class="">gestire le le foto della biografia<div class="indented"><ul id="57e014d1-4d31-48a7-8721-dfc4b77cf535" class="bulleted-list"><li style="list-style-type:disc">Aggiungere una nuova foto</li></ul><ul id="0acec447-8b5d-472d-8dab-7d303da864fb" class="bulleted-list"><li style="list-style-type:disc">Rimuovere una foto già esistente</li></ul></div></p><h2 id="9ebe22c4-adf0-4640-84a9-3c1ab082534d" class="block-color-purple_background">Risoluzione dinamica</h2><p id="8a7ba512-5851-4d70-973b-a34b5ce9cf83" class="">I’anteprima del sito e il pannello di controllo è stato predisposto per una visualizzazione da ogni dispositivo.</p><p id="1d48896f-83c0-4810-a2a7-fe42c96f109e" class="">Le risoluzioni supportate sono a partire dai cellulari fino al 4k.</p><h1 id="69f74e2c-fdb2-4523-812f-47240766bba1" class="block-color-yellow_background">Server</h1><h3 id="1068f37f-38d2-482a-a3f6-8d30aa409585" class="">Dipendenze</h3><div id="89f8331b-0788-45cd-ab32-280eec5d2f6a" class="column-list"><div id="cfca0e39-f081-49cf-bbbe-c14ebc8efad7" style="width:25%" class="column"><p id="27909f54-698a-44b4-8d3c-514b0288305c" class="">express</p></div><div id="39784ecf-913c-4220-8039-4f2ee046bd8f" style="width:75%" class="column"><p id="777a9ea5-7d1f-479e-9d8f-acee9868cba6" class="">modulo core per la gestione dei routing e, Http helpers e per i content negotiation</p></div></div><p id="269884e7-4a1e-467d-93b9-fc23d941f310" class="">
+</p><div id="1eca6cc7-324c-4b1a-8b8c-73e68e32c679" class="column-list"><div id="86abfef0-fdc0-4d84-9091-31198d54ff29" style="width:25%" class="column"><p id="4c7175a7-a39d-4bfb-b048-3ca3cede2018" class="">path</p></div><div id="252fe858-dbf8-4779-9e3e-4ae6a87813ae" style="width:75%" class="column"><p id="8e940b2b-8880-44ee-b084-bb1123890873" class="">Permette di utilizzare delle utilità per lavorare con i file e le cartelle.</p></div></div><div id="e5237e02-aa3d-4665-aa3c-9b04c59b85d7" class="column-list"><div id="6f80f809-62c0-4c9b-8373-6ed0bb0c04a5" style="width:25%" class="column"><p id="a6c2ec48-e791-42de-bed7-5d5f75e7003c" class="">bootstrap-icons</p></div><div id="e9972b48-cbd3-480b-8d69-a178bfa6973a" style="width:75%" class="column"><p id="74a86bd4-a593-4e98-aa98-842b3f1cfbf8" class="">Set di icone per personalizzare alcune feature grafiche per esempio i pulsanti</p></div></div><div id="1d26688b-946d-4982-9fd4-89a2d8b3e40e" class="column-list"><div id="bb0b8393-5265-4957-a61b-98113f2f3c17" style="width:25%" class="column"><p id="045ea661-19f6-4a00-88ee-8fc4d8a5a645" class="">express-session</p></div><div id="3f416b0a-5ece-42cb-87b6-6826caaa2ea1" style="width:75%" class="column"><p id="61c031b2-28cb-46c2-98d6-510d7b3d641b" class="">Ci permette di semplificare la gestione delle sessioni di accesso all’area protetta.</p></div></div><div id="86c8d666-68df-4a40-9f00-b393abb9cf66" class="column-list"><div id="740ad7c2-d28d-4077-85a5-72d902852dac" style="width:25%" class="column"><p id="15cbdb59-05d6-4f68-a685-bd918857c97e" class="">bcrypt</p></div><div id="3aacde73-c724-40a6-96cc-755e097b5a52" style="width:75%" class="column"><p id="4f099699-58dd-4360-b516-4a3e248c048d" class="">Offre funzionalità sulla criptazione, confronto tra chiavi criptate ecc...</p></div></div><div id="9dd25820-8cac-4fef-bcd7-526c4ce4707a" class="column-list"><div id="2e3311e5-ca04-45aa-a30a-43109fb35861" style="width:25%" class="column"><p id="93365c9e-0fb3-474a-88b4-c9c10e6aca23" class="">ejs</p></div><div id="16c31c5e-2b6a-42c6-921b-fc9ca5167210" style="width:75%" class="column"><p id="cbf0e9b0-0186-4ae2-9211-c54dd42f4d19" class="">Permette una frammentazione più incisa delle pagine html, permettendo così di gestire meglio le parti statiche e dinamica delle pagine web.</p></div></div><div id="2c1f674b-a640-4870-8367-94866644fc90" class="column-list"><div id="3e686d48-ffcf-459f-a91d-294b22f24754" style="width:25%" class="column"><p id="c2fdc8f6-bb6f-4952-9661-63afae7f6e69" class="">sharp</p></div><div id="26c76c3e-6774-4a20-957c-1ccbf16ca3b4" style="width:75%" class="column"><p id="6b0dd775-4c5f-4d52-99bf-29c5ca63242e" class="">Modulo per la conversione e la compressione di immagini. Essenziale per gestire le immagini in caricamento molto pesanti.</p></div></div><div id="1f1ff045-4077-439e-8d66-efaf9a38b684" class="column-list"><div id="1a32b7a6-37e9-40bc-8fe3-034570c6b97d" style="width:25%" class="column"><p id="e2d8711c-93a9-42e4-8620-bef0786be829" class="">multer</p></div><div id="75597cab-5d49-45e3-ac0d-bde78fc34249" style="width:75%" class="column"><p id="2aed50ca-bbef-4ea5-a2d7-72857d0ce0ea" class="">Middleware per gestire il caricamento di file</p></div></div></div></article></body></html>
