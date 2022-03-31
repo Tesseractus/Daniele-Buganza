@@ -1,3 +1,4 @@
+//Viene usato nel pannello di controllo, a seconda dello stato viene caricato una form specifica nel centro della pagina
 async function loadAmministrationStatus(name){
     //PRESENTER
     let presenter=document.getElementById("presenter");
@@ -18,8 +19,8 @@ async function loadAmministrationStatus(name){
     let jsonSubCategories= await fetch("data/Subcategories.json").then(e=> e.json());
     //-----------------------------------------------------------------------------------------
     //DEFINERS
-    let selectCategory,nameSubcategory,nameCategory,containerSelSubcategory;
-
+    let selectCategory,nameSubcategory,nameCategory,containerSelSubcategory,subSelector;
+    //DEFINE VISUAL LAYOUT
     switch(name){
         case 'addCategory':
             //RESPONSE
@@ -59,18 +60,16 @@ async function loadAmministrationStatus(name){
             break;
         case 'modifySubcategory':
             //RESPONSE
+            
             document.getElementById("response").innerHTML="<p>Modifica sottocategoria</p>";
             //INPUT TEXT
             let newNameSubcategory=createInput("text","newNameSubcategory","Nuovo Nome","form-control","newNameCategory");
-            selectCategory=createDropDownSelect("form-select w-100","categorySelected",jsonCategories);
-            selectCategory.id=selectCategory.name;
-            containerSelSubcategory=document.createElement("div");
-            containerSelSubcategory.id="containerSelSubcategory";
-            selectCategory.setAttribute("onchange","filterSubSelectionAdmin()");
-            selectCategory.setAttribute("subs",JSON.stringify(jsonSubCategories));
+           
+
+            //SUBCATEGORYSELECTOR
+            subSelector=createSubcategorySelector(jsonCategories,jsonSubCategories);
             //ADD TO HTML
-            group.appendChild(selectCategory);
-            group.appendChild(containerSelSubcategory);
+            group.appendChild(subSelector);
             group.appendChild(newNameSubcategory);
             group.appendChild(confirmButton);
             break;
@@ -78,15 +77,9 @@ async function loadAmministrationStatus(name){
             //RESPONSE
             document.getElementById("response").innerHTML="<p>Rimuovi sottocategoria</p>";
             //INPUT
-            selectCategory=createDropDownSelect("form-select w-100","categorySelected",jsonCategories);
-            selectCategory.id=selectCategory.name;
-            let container2SelSubcategory=document.createElement("div");
-            container2SelSubcategory.id="containerSelSubcategory";
-            selectCategory.setAttribute("onchange","filterSubSelectionAdmin()");
-            selectCategory.setAttribute("subs",JSON.stringify(jsonSubCategories));
+            subSelector=createSubcategorySelector(jsonCategories,jsonSubCategories);
             //ADD TO HTML
-            group.appendChild(selectCategory);
-            group.appendChild(container2SelSubcategory);
+            group.appendChild(subSelector);
             group.appendChild(confirmButton);
             break;
         case 'addArt':
@@ -94,22 +87,19 @@ async function loadAmministrationStatus(name){
             document.getElementById("response").innerHTML="<p>Aggiungi opera</p>";
             let inputImage=createInput('file','Opera','Carica opera','form-control','Opera');
             form.setAttribute('enctype','multipart/form-data');
-            selectCategory=createDropDownSelect("form-select w-100","categorySelected",jsonCategories);
-            selectCategory.id=selectCategory.name;
-            containerSelSubcategory=document.createElement("div");
-            containerSelSubcategory.id="containerSelSubcategory";
-            selectCategory.setAttribute("onchange","filterSubSelectionAdmin()");
-            selectCategory.setAttribute("subs",JSON.stringify(jsonSubCategories));
+            subSelector=createSubcategorySelector(jsonCategories,jsonSubCategories);
             let nameArt=createInput('text','nameArt','Nome','form-control','nameArt');
             nameArt.required=true;
 
             group.appendChild(inputImage);
-            group.appendChild(selectCategory);
-            group.appendChild(containerSelSubcategory);
+            group.appendChild(subSelector);
             group.appendChild(nameArt);
             group.appendChild(confirmButton);
 
 
+            break;
+        case 'modifyArt':
+            
             break;
         case 'removeArt':
             let menu=document.getElementById("indexcolumn");
@@ -173,7 +163,6 @@ async function loadAmministrationStatus(name){
                         let deleteButton= createButtonSubmit("submit","btn-danger",'<span class="bi bi-trash"></span> Elimina');
                         deleteButton.id=x.source;
                         deleteButton.onclick=function(){
-                            console.log("SUCCESSSOOOOOOOOOOOOOOO");
                             let toDelete=createHiddenRequest('artToDelete',x.source);
                             group.appendChild(toDelete);
                         };
@@ -222,6 +211,7 @@ async function loadAmministrationStatus(name){
 }
 
 //---------------------Utility functions----------------------------
+//Crea una form dove poi verranno appesi gli elementi figli.
 function createForm(){
     let form=document.createElement("form");
     form.action="/adminAction";
@@ -229,6 +219,7 @@ function createForm(){
     form.method="post";
     return form;
 }
+//Crea un input a partire dal tipo, il nome, il messaggio di sfondo, la classe e l'id
 function createInput(type,name,placeholder,cls,id){
     let input=document.createElement("input");
     input.type=type;
@@ -239,6 +230,7 @@ function createInput(type,name,placeholder,cls,id){
     input.required=true;
     return input;
 }
+//Funzione che crea una selezione dropdown prendendo il nome della classe, il nome, e gli elementi da inserirre
 function createDropDownSelect(cls,name,elements){
     let select=document.createElement("select");
     select.className=cls;
@@ -260,6 +252,7 @@ function createDropDownSelect(cls,name,elements){
     select.required=true;
     return select;
 }
+//Utilizzato principalmente per creare input nascosti per inviare paramatri essenziali al server
 function createHiddenRequest(nameRequest,name){
     let type=document.createElement("input");
     type.name=nameRequest;
@@ -267,6 +260,7 @@ function createHiddenRequest(nameRequest,name){
     type.value=name;
     return type;
 }
+//Utilizzato principalmente per creare un pulsante di submit
 function createButtonSubmit(type,cls,text){
     let button=document.createElement("button");
     button.type=type;
@@ -275,6 +269,7 @@ function createButtonSubmit(type,cls,text){
     button.id="confirm";
     return button;
 }
+//Utilizzato principalmente per creare card delle opere
 function createCard(image,title,text,button){
     let card= document.createElement("div");
     card.className="card tex-white bg-dark mb-3";
@@ -298,4 +293,48 @@ function createCard(image,title,text,button){
     card.appendChild(cardImg);
     card.appendChild(cardBody);
     return card;
+}
+//Funzione per selezionare la sottocategoria
+function createSubcategorySelector(categories, subcategories){
+    container=document.createElement("div");
+    container.id="subcategorySelector";
+    selectCategory=createDropDownSelect("form-select w-100","categorySelected",categories);
+    selectCategory.id=selectCategory.name;
+    containerSelSubcategory=document.createElement("div");
+    containerSelSubcategory.id="containerSelSubcategory";
+    
+    selectCategory.onchange=async function(){
+        console.log(selectCategory.value);
+        let someExist=false; //in case not exists subcategories with a specify category
+        let select=document.createElement("select");
+        select.className="form-select w-100";
+        select.name="subcategorySelected";
+        selCat=document.getElementById("categorySelected");
+        ButtonConfirm=document.getElementById("confirm");
+        let first=true;
+        containerSelSubcategory.innerHTML="";
+        for(const x of subcategories){
+            if(x.category==selCat.value){ 
+                someExist = ((someExist = false) ? false : true);
+                var option=document.createElement("option");
+                option.text=x.name;
+                option.value=x.name;
+                if (first){option.selected=true; first=false;}
+                select.add(option);
+            }
+            if(someExist){
+                containerSelSubcategory.appendChild(select);
+            }else{
+                containerSelSubcategory.innerHTML="";
+                
+            }
+
+        }
+        select.required=true;
+    };
+    container.appendChild(selectCategory);
+    container.appendChild(containerSelSubcategory);
+    console.log(container);
+    return container;
+    
 }

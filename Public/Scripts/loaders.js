@@ -1,4 +1,5 @@
-//Is used to create every time the links into the menu to redirect into the gallery with a specific category name
+//Viene usato per caricare le categorie nel menù quando la funzione viene chiamata
+//Necessità di un contenitore con id=categoriesLinks
 async function loadCategories(){
     console.log("-> Category links loaded");
     let jsonCategories= await fetch("data/Categories.json").then(e=> e.json());
@@ -12,7 +13,9 @@ async function loadCategories(){
         textIndex.appendChild(a);
     }
 }
-//Is used to create every time the links into the menu to redirect into the gallery with a specific subcategory, but maintaining the same category
+//Viene usata per caricare le sottocategorie nel menù quando la funzione viene chiamata.
+//Necessità di un contenitore con id=subcategoriesLinks
+//Necessitò in input della categoria 
 async function loadSubCategories(category){
     console.log("-> Subcategory links loaded");
     let jsnSubcategories= await fetch("data/Subcategories.json").then(e=>e.json());
@@ -28,7 +31,8 @@ async function loadSubCategories(category){
         }
     }
 }
-//Is used to create link for the pubblications into the menu
+//Viene usata per caricare nel menù i link che indirizzano alle pubblicazioni
+//Necessità di un contenitore nel menù con id=pubblicationsLinks
 async function loadPubblications(){
     console.log("-> Pubblications links loaded");
     let jsonPubblications= await fetch("data/Pubblications.json").then(e=> e.json());
@@ -42,7 +46,9 @@ async function loadPubblications(){
         pubLinks.appendChild(a);
     }
 }
-//Is used to load images based on the category and subcategory into the gallery section
+//Viene usata per caricare le opere nella pagina galleria
+//Necessità in input la categoria e la sottocategoria
+//-- In caso non si specifica la sottocategoria carica in base alla categoria
 async function loadGallery(category, subcategory){
     if(category != null){
         /* populate the page categories */
@@ -71,7 +77,7 @@ async function loadGallery(category, subcategory){
         patternGallery(imagesFiltered);
     }
 }
-//Is used to populate the homepage gallery
+//Usato per caricare le opere nella homePage
 async function loadHomeGallery(){
     let jsnHGData=await fetch("data/HomeGallery.json").then(e => e.json());
     let jsnWorks=await fetch("data/Works.json").then(e => e.json());
@@ -81,12 +87,12 @@ async function loadHomeGallery(){
     }
     createHomeGalleryDiv(SelectedW);
 }
-//Is used to load the pubblication content and show it on the section pubblication
+//Usato per caricare la pubblicazione in base al nome
 async function loadSelectedPubblication(name){
     let jsnPubblications=await fetch("data/Pubblications.json").then(e => e.json());
     createPubblicationDiv(jsnPubblications.find(element => element.name=name));
 }
-//Is used to randomize the biography picture every time we load the page
+//Seleziona in modo casuale un immagine delle foto profilo e le carica nella biografia
 async function loadRandomPic(){
     let randomPic= await fetch("data/Pics.json").then(e=> e.json()).then(e => e[e.length*Math.random() | 0]);
     let image=document.createElement("img");

@@ -2,14 +2,15 @@ var fs= require("fs");
 var sharp = require('sharp');
 
 const IMAGEQUALITY=80;
-//Used to check categories
+//Usato per controllare se esiste già la categoria nel db
 function checkInDbCatName(nameDb,toSearch){
     let db=JSON.parse(fs.readFileSync('Public/data/'+nameDb));
     if(db.find(e => e.name === toSearch.name)){
         return true;
     }
     return false;
-} 
+}
+//Usato per controllare se esistà già la sottocategoria sotto la categoria specificata nel db
 function checkInDbSubCatName(nameDb,toSearch){
     let db=JSON.parse(fs.readFileSync('Public/data/'+nameDb));
     if(db.find(e => e.name === toSearch.name && e.category===toSearch.category)){
@@ -17,7 +18,7 @@ function checkInDbSubCatName(nameDb,toSearch){
     }
     return false;
 }
-//Universal -- input Object
+//Aggiunge nel database un elemento in fondo
 function addInDataDb(nameDb,toAdd){
     let db=JSON.parse(fs.readFileSync('Public/data/'+nameDb));
     db.push(toAdd);
@@ -28,7 +29,7 @@ function addInDataDb(nameDb,toAdd){
         }
     });
 }
-//Used to modify name for all DB which contains the attribute name
+//Usato per modificare il nome di un elemento in base al nome del database, il nome da modificare e il nome nuovo
 function modifyNameInDb(nameDb,toModify,newValue){
     let db=JSON.parse(fs.readFileSync('Public/data/'+nameDb));
     for(const x of db){
@@ -44,7 +45,7 @@ function modifyNameInDb(nameDb,toModify,newValue){
         }
     });
 }
-//Used into all Db which contains the name attribute
+//Elimina un elemento nel database, attributo di ricerca: nome
 function deleteByNameInDb(nameDb,name){
     let db=JSON.parse(fs.readFileSync('Public/data/'+nameDb));
     let filtered=db.filter(function(obj){
@@ -57,6 +58,7 @@ function deleteByNameInDb(nameDb,name){
         }
     });
 };
+//Elimina una sottocategoria, sotto una categoria specifica
 function deleteInDbSubca(category,name){
     let dbSub=JSON.parse(fs.readFileSync('Public/data/Subcategories.json'));
     let filtered=dbSub.filter(function(obj){
@@ -70,6 +72,7 @@ function deleteInDbSubca(category,name){
         }
     });
 };
+//Controlla se la cartella esiste, se non esiste, la crea
 function checkFolder(folder){
     fs.access(folder, (error) => {
         if (error) {
@@ -77,9 +80,11 @@ function checkFolder(folder){
         }
       });
 };
+//Crea un nome casuale di lunghezza definita, usata per le nuove immagini caricate
 function randomName(length){
     return require('crypto').randomBytes(length).toString('hex');
 };
+//Funzione che converte l'immagine la rinomina e la salva
 function addImage(pathSave,nameFile,file){
     var image= sharp(file.buffer);
     image.metadata().then(function(metadata){
@@ -92,7 +97,7 @@ function addImage(pathSave,nameFile,file){
 }
 
 //--------------------------------------------------------------------------------------------------
-//functions used externally
+//Funzioni che vengono richiamate esternamente dal modulo
 module.exports ={
     createCategory: function(name){
         //Check if is empty
@@ -146,10 +151,12 @@ module.exports ={
         }
     },
     modifySubcategory: function(category,name,newName){
-        if(newName==""){
+        if(newName=="" || typeof newName == undefined){
             return "Inserisci un nome valido";
         }
         let box={'name':name, 'category':category};
+        console.log(box);
+        console.log(newName);
         let db=JSON.parse(fs.readFileSync('Public/data/Subcategories.json'));
         for(const x of db){
             if(x.name==box.name && x.category==box.category){
@@ -191,6 +198,30 @@ module.exports ={
         addInDataDb('Works.json',newArtData);
         return "Immagina caricata con successo";
     },
+    removeArt: async function(artToDelete){
+        if(artToDelete === undefined){
+            return "Eliminazione non avvenuta";
+        }
+        let pathDB="Public/data/Works.json";
+        let pathArt="Public/gallery/"+artToDelete;
+        let DB=JSON.parse(fs.readFileSync(pathDB));
+        DB=DB.filter(function(obj){
+            return obj.source != artToDelete;
+        });
+        DB=JSON.stringify(DB,null,2);
+        fs.writeFile(pathDB,DB, function(err){
+            if (err){
+                return "Eliminazione del database del file non avvenuta";
+            }
+        });
+        fs.unlink(pathArt,(err)=>{
+            if(err){
+                return "Eliminazione del file non avvenuta";
+            }
+            
+        });
+        return "Eliminazione avvenuta!";
+    },
     addPhotoBiography: async function(photoBuffer){
         const photoDestination="./Public/pics/";
         checkFolder(photoDestination);
@@ -219,30 +250,6 @@ module.exports ={
             }
         });
         fs.unlink(pathPhoto,(err)=>{
-            if(err){
-                return "Eliminazione del file non avvenuta";
-            }
-            
-        });
-        return "Eliminazione avvenuta!";
-    },
-    removeArt: async function(artToDelete){
-        if(artToDelete === undefined){
-            return "Eliminazione non avvenuta";
-        }
-        let pathDB="Public/data/Works.json";
-        let pathArt="Public/gallery/"+artToDelete;
-        let DB=JSON.parse(fs.readFileSync(pathDB));
-        DB=DB.filter(function(obj){
-            return obj.source != artToDelete;
-        });
-        DB=JSON.stringify(DB,null,2);
-        fs.writeFile(pathDB,DB, function(err){
-            if (err){
-                return "Eliminazione del database del file non avvenuta";
-            }
-        });
-        fs.unlink(pathArt,(err)=>{
             if(err){
                 return "Eliminazione del file non avvenuta";
             }

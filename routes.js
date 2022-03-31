@@ -79,8 +79,7 @@ router.post("/adminAction",upload.single('Opera'), async function(req,res){
             message={response:tools.createSubcategory(req.body.categorySelected,req.body.nameSubcategory)};
             break;
         case 'modifySubcategory':
-            console.log(req.body);
-            message={response:tools.modifySubcategory(req.body.categorySelected,req.body.subcategorySelected,req.body.newNameSubCategory)};
+            message={response:tools.modifySubcategory(req.body.categorySelected,req.body.subcategorySelected,req.body.newNameSubcategory)};
             break;
         case 'removeSubcategory':
             message={response:tools.removeSubcategory(req.body.categorySelected,req.body.subcategorySelected)};

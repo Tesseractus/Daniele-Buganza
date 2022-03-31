@@ -1,12 +1,9 @@
+//Usato solamente per leggere lo stato degli attributi nel URL, in base al nome
 function getUrlVariable(name){
     const box= new URLSearchParams(window.location.search);
     return box.get(name);
 }
-
-async function getImage(name){
-    fetch(name).then(r=> r.blob()).then(i => { const iob = URL.createObjectURL(i); return iob});
-}
-
+//Funzione che permette di accedere all'area nascosta login
 function goToLogin(title){
     if (title.getAttribute("steps")=="0000"){
         window.location.href ="/login";
@@ -15,18 +12,18 @@ function goToLogin(title){
     }
 
 }
-
+//Funzione che attiva i dropdown disattivati a causa di un bug
 function contactsActivation(){
     $(document).ready(function() {
         $(".dropdown-toggle").dropdown();
         console.log("--> Dropdown Activated");
     });
 }
-
+//Funzione che reindirizza alla pagina instagram
 function redirectToInstagram (){
     window.location.href = "https://www.instagram.com/sydbughi/";
 }
-
+//Funzione che cambia il nome al titolo del menù in base al constesto
 function changeMenuName(){
     let menuTitle=document.getElementById("menuTitle");
     if(getUrlVariable("subcategories")==null){
@@ -36,7 +33,8 @@ function changeMenuName(){
     }
    
 }
-
+//Funzione intermedia che popola la galleria nelle pagine categorie e sottocategorie
+//Prende un array di immagini già filtrate in base a categoria e sottocategoria
 function patternGallery(arrayImages){
      /* populate the page with works */
      VDCounter=[];
@@ -55,7 +53,7 @@ function patternGallery(arrayImages){
     }
     createVDiv(VDCounter);
 }
-
+//Funzione che permette l'anteprima a tutto schermo delle opere su cui ci si clicca
 function OpenModal(a){
     // Get the modal
     var modal = document.getElementById("myModal");
@@ -66,44 +64,15 @@ function OpenModal(a){
     modalImg.src = a.src;
     captionText.innerHTML = a.getAttribute('a');
 }
+//Funzione che chiude l'anteprima a tutto schermo
 function CloseModal(){
     var modal = document.getElementById("myModal");
     modal.style.display = 'none';
 }
-function filterSubSelectionAdmin(){
-        let someExist=false; //in case not exists subcategories with a specify category
-        let select=document.createElement("select");
-        select.className="form-select w-100";
-        select.name="subcategorySelected";
-        subcategories= JSON.parse(document.getElementById("categorySelected").getAttribute("subs"));
-        container=document.getElementById("containerSelSubcategory");
-        SelectorCat=document.getElementById("categorySelected");
-        ButtonConfirm=document.getElementById("confirm");
-        let first=true;
-        container.innerHTML="";
-        for(const x of subcategories){
-            if(x.category==SelectorCat.value){ 
-                someExist = ((someExist = false) ? false : true);
-                var option=document.createElement("option");
-                option.text=x.name;
-                option.value=x.name;
-                if (first){option.selected=true; first=false;}
-                select.add(option);
-            }
-            if(someExist){
-                container.appendChild(select);
-                ButtonConfirm.disabled=false;
-            }else{
-                ButtonConfirm.disabled=true;
-                container.innerHTML="";
-                
-            }
 
-        }
-        select.required=true;
-}
 
 /*-------------------------DIV CREATORS-----------------------------*/
+//popola i div con immagini verticali nella galleria
 function createVDiv(verticalImages){
     let presenter=document.getElementById('presenter');
     VerticalDiv=document.createElement("div");
@@ -120,7 +89,7 @@ function createVDiv(verticalImages){
     presenter.appendChild(VerticalDiv);
 }
 
-
+//Popola i div con un'immagine verticale nella galleria
 function createHDiv(horizontalImage){
     let presenter=document.getElementById('presenter');
     HorizontalDiv=document.createElement("div");
@@ -134,7 +103,7 @@ function createHDiv(horizontalImage){
     HorizontalDiv.appendChild(work);
     presenter.appendChild(HorizontalDiv);
 }
-
+//Popola il div della pubblicazione prendendo in entrata il nome della pubblicazione
 function createPubblicationDiv(pubblication){
     let presenter=document.getElementById('presenter');
     pubblicationDiv=document.createElement("div");
@@ -169,7 +138,7 @@ function createPubblicationDiv(pubblication){
     backface.innerHTML=pubblication.description;
 
 }
-
+//Popola il mosaico con le immagini della homepage
 function createHomeGalleryDiv(selectedW){
     let contenitor=document.getElementById("Mosaic");
     let counter=1;
@@ -184,7 +153,6 @@ function createHomeGalleryDiv(selectedW){
         work.setAttribute("load","lazy");
 
         block.appendChild(work);
-        console.log(contenitor);
         contenitor.appendChild(block);
     }
 }
